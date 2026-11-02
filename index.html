@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>متابعة الخدام – رابعة / خامسة / سادسة</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f6fb;--card:#fff;--tx:#1e1b3a;--mu:#6b7090;--bd:#e3e4f0;--pr:#4f46e5;--pr2:#7c3aed;--ok:#0f9d6b;--okb:#e3f6ee;--bad:#d1224b;--badb:#fde6ec;--wa:#e6f7ec;--ph:#e4f0fd;--bar:#e2e3ee;--on:#4f46e5}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12121c;--card:#1c1c2b;--tx:#ecebfa;--mu:#9a9cc0;--bd:#2d2d44;--okb:#12362a;--badb:#3b1520;--wa:#12301f;--ph:#14293f;--bar:#2d2d44}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;padding-bottom:84px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--card);border-bottom:1px solid var(--bd);padding:10px 12px}
+h1{font-size:16px;margin:0 0 8px}
+.wk{display:flex;gap:6px;align-items:center}
+.wk select{flex:1;min-width:0}
+button,select,input{font:inherit;color:var(--tx)}
+.ib{border:1px solid var(--bd);background:var(--card);border-radius:10px;width:38px;height:38px;font-size:16px}
+select,input[type=text]{border:1px solid var(--bd);background:var(--card);border-radius:12px;padding:9px 10px;width:100%}
+main{padding:12px}
+.row{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+.seg{display:flex;border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--card)}
+.seg button{border:0;background:none;padding:9px 12px}
+.seg .on{background:var(--on);color:#fff}
+.add{width:100%;border:0;border-radius:14px;padding:12px;color:#fff;font-weight:700;background:linear-gradient(90deg,var(--pr),var(--pr2));margin-bottom:10px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:6px}
+.chip{white-space:nowrap;border:1px solid var(--bd);border-radius:999px;padding:8px 14px;font-weight:700;background:var(--card)}
+.chip.on{background:#1e1b3a;color:#fff;border-color:#1e1b3a}
+.chip.g{background:var(--okb);color:var(--ok)}.chip.r{background:var(--badb);color:var(--bad)}
+.cards{display:grid;gap:12px}.cards.grid{grid-template-columns:1fr 1fr}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:12px}
+.top{display:flex;align-items:center;gap:10px}
+.av{width:44px;height:44px;flex:none;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:18px;background:linear-gradient(135deg,var(--pr),var(--pr2))}
+.nm{flex:1;min-width:0}.nm b{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lk{border:0;background:none;color:var(--pr);font-size:12px;padding:2px 0}
+.ix{color:var(--mu);font-size:12px}
+.act{display:flex;gap:6px;align-items:center;margin:10px 0 8px}
+.star{border:1px solid var(--bad);background:var(--badb);color:var(--bad);border-radius:10px;padding:5px 9px;font-weight:700;font-size:13px}
+.star.ok{border-color:var(--ok);background:var(--okb);color:var(--ok)}
+.pill{border:0;border-radius:10px;padding:7px 11px;text-decoration:none;font-size:14px;background:var(--ph);color:var(--tx)}
+.pill.w{background:var(--wa)}.pill.all{background:var(--on);color:#fff;font-weight:700}
+.bars{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-bottom:10px}
+.bars i{height:6px;border-radius:4px;background:var(--bar)}.bars i.f{background:var(--ok)}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.t{border:1px solid var(--bd);background:var(--card);border-radius:12px;padding:10px 4px;font-size:13px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.t.on{background:var(--okb);border-color:var(--ok);color:var(--ok);font-weight:700}
+.ft{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;font-size:12px}
+.ft span{border-radius:999px;padding:5px 10px;background:var(--bar);font-weight:700}
+.ft .g{background:var(--okb);color:var(--ok)}
+.det{margin-top:10px;border-top:1px dashed var(--bd);padding-top:10px;font-size:13px;display:grid;gap:6px;color:var(--mu)}
+.det b{color:var(--tx)}.det input{margin-top:2px}
+.tbl{overflow-x:auto;border:1px solid var(--bd);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:520px}
+th,td{padding:8px 6px;text-align:center;border-bottom:1px solid var(--bd)}
+td:first-child,th:first-child{text-align:right;position:sticky;right:0;background:var(--card);white-space:nowrap;max-width:140px;overflow:hidden;text-overflow:ellipsis}
+td.c{cursor:pointer}td.c.on{background:var(--okb);color:var(--ok);font-weight:700}
+nav{position:fixed;bottom:0;inset-inline:0;display:flex;background:var(--card);border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom,0px);z-index:9}
+nav button{flex:1;border:0;background:none;padding:10px 0;font-size:12px;color:var(--mu);display:flex;flex-direction:column;align-items:center;gap:2px}
+nav button span{font-size:20px}nav .on{color:var(--pr);background:var(--bar)}
+.sc{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:14px;margin-bottom:12px}
+.sc h3{margin:0 0 10px;font-size:15px}
+.mr{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:13px}.mr em{width:90px;font-style:normal}
+.mr div{flex:1;height:8px;border-radius:5px;background:var(--bar);overflow:hidden}.mr div i{display:block;height:100%;background:var(--ok)}
+.ch{display:flex;align-items:flex-end;gap:2px;height:60px;margin-top:10px}.ch i{flex:1;background:var(--pr);border-radius:2px 2px 0 0;min-height:2px}
+.ch i.cur{background:var(--ok)}
+.empty{text-align:center;color:var(--mu);padding:30px}
+</style>
+</head>
+<body>
+<header>
+<h1>📖 متابعة الخدام <small id="sy" class="ix"></small></h1>
+<div class="wk"><button class="ib" id="nx" aria-label="التالي">›</button><select id="ws"></select><button class="ib" id="pv" aria-label="السابق">‹</button></div>
+</header>
+<main id="app"></main>
+<nav id="nav"></nav>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.js"></script>
+<script>
+var D={"4": [{"n": "البير رافت ادريس", "t": "أستاذ", "p": "201222610137", "e": "Alber.Rafat94@gmail.com", "b": "١٩٩٤-١٠-٠٣", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "7ش الاندلس متفرع من شارع احمد ابو سليمان السيوف شماعة – السيوف شماعة", "f": ""}, {"n": "امير صبحي بشرى", "t": "أستاذ", "p": "201203494580", "e": "amirsobhy008@gmail.com", "b": "٢٠٠١-١٠-١٩", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "ايزيس جمال فهمي", "t": "", "p": "201206343964", "e": "ezizgamal@gmail.com", "b": "١٩٧٧-٠٥-٠٤", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "بجوار كنيسة الانبا اثناسيوس – السيوف شماعة", "f": ""}, {"n": "بيشوي أيمن جرجس", "t": "أستاذ", "p": "201205340926", "e": "bishoyagerges888@gmail.com", "b": "٢٠٠٥-٠٧-٢٧", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "42ش محمود الكمشوشي - ظهر الكنيسة – السيوف شماعة", "f": ""}, {"n": "توني ايمن بدري", "t": "أستاذ", "p": "201225913880", "e": "antonayman7@gmail.com", "b": "٢٠٠٥-٠٢-١١", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "شارع 16 ملك عمارة ليسيكو - صيدلية احمد فايد – الفلكى", "f": ""}, {"n": "توني هاني سمير", "t": "أستاذ", "p": "201227417391", "e": "Tonyhany01227417391@gmail.com", "b": "٢٠٠٥-١١-١٦", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "جورج فهمي رزق الله", "t": "أستاذ", "p": "201272435885", "e": "george.fahmy10000@gmail.com", "b": "٢٠٠٣-٠٩-١٤", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف شماعة – السيوف شماعة", "f": ""}, {"n": "جومانا رومانى عبدالمسيح", "t": "تاسوني", "p": "201206592901", "e": "Gomanarabdalmaseh@gmail.com", "b": "٢٠٠٥-١٠-٢٦", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "49 ش الاخلاص دور 4 الدور شقه - امام اسماك قاصد كريم - ابو سليمان – أبو سليمان", "f": ""}, {"n": "جون الكسان اسكندر", "t": "أستاذ", "p": "201227188743", "e": "alexanjohn768@gmail.com", "b": "٢٠٠٥-٠٩-٢٤", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "روز ميلاد نعيم", "t": "تاسوني", "p": "201276170406", "e": "rose.melad@sol.com", "b": "٢٠٠٧-٠٧-٣٠", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "8 ش ارض المفتى الججيده متفرع من صلاح الدين - منزل رقم 60 الدور الثانى – السيوف شماعة", "f": ""}, {"n": "روماني مينا ثابت", "t": "أستاذ", "p": "201226112262", "e": "romanymina6666@gmail.com", "b": "٢٠٠٨-٠٥-١١", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "ش 4 متفرع من الفنان محمد عثمان يوجد في الشارع محل عم سامي للملابس أسفل المنزل يوجد سمكري سيارات – السيوف شماعة", "f": ""}, {"n": "ريموندا روماني فايز", "t": "تاسوني", "p": "201221463281", "e": "rimoromany8@gmail.com", "b": "٢٠٠٥-٠٥-٠٥", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "شارع الفنان محمد عثمان برج الحياة برج رقم 146 – السيوف شماعة", "f": ""}, {"n": "ساره عماد فريد", "t": "تاسوني", "p": "201282931874", "e": "emadsara8981@gmail.com", "b": "٢٠٠٨-٠٧-٢٤", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "شارع واحد ارض نوڤل امام بنك مصر – السيوف شماعة", "f": ""}, {"n": "سارة نعيم حنا", "t": "تاسوني", "p": "201203087697", "e": "254321sara@gmail.com", "b": "٢٠٠٥-١٠-٠٤", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف شماعة – السيوف شماعة", "f": ""}, {"n": "سيلڤانا ثروت ميشيل", "t": "تاسوني", "p": "201148842294", "e": "selvana.sarwat@ejust.edu.eg", "b": "٢٠٠٤-٠٥-٢٧", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف شماعة – السيوف شماعة", "f": ""}, {"n": "عماد عادل رشدي", "t": "أستاذ", "p": "201228320992", "e": "adlmadadl75@gmail.com", "b": "٢٠٠٦-٠٩-٠٢", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف شماعة – السيوف شماعة", "f": ""}, {"n": "مارتن إسحاق اسعد", "t": "أستاذ", "p": "201227584645", "e": "martineshak645@gmail.com", "b": "٢٠٠٧-٠٧-٢١", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف أول صلاح الدين بجوار فرن محمد سليم – السيوف شماعة", "f": ""}, {"n": "مارك صلاح رشدي", "t": "أستاذ", "p": "201551227126", "e": "marksalah581@gmail.com", "b": "٢٠٠٦-٠٧-١٦", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف ش حسن زكي متقاطع مع ش عزيز انطوان الدور ٣ – السيوف شماعة", "f": ""}, {"n": "ماريا سعيد رزق", "t": "تاسوني", "p": "201203824576", "e": "hhxhdjsksnssb@gmail.com", "b": "٢٠٠٦-٠٣-١٥", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف شماعة – السيوف شماعة", "f": ""}, {"n": "مارينا بطرس فؤاد", "t": "تاسوني", "p": "201227432952", "e": "botrosmarina32@gmail.com", "b": "٢٠٠٥-٠٤-٢٧", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "٢١شارع عبدالرازق السنهوري – السيوف شماعة", "f": ""}, {"n": "ميرا نادر سعد", "t": "تاسوني", "p": "201270297546", "e": "miranader203@gmail.com", "b": "٢٠٠٨-٠١-٠٣", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "ميرا نادر سعد ٣شارع البرماوى متفرع من جميله بو حريد - الدور الثالث – السيوف شماعة", "f": ""}, {"n": "ميرنا الفى صالح", "t": "تاسوني", "p": "201221106817", "e": "Marnaalfy6@gmail.com", "b": "٢٠٠٥-٠١-٠١", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "متفرع من شارع جميلة بو حريد – السيوف شماعة", "f": ""}, {"n": "مينا موريس صادق", "t": "أستاذ", "p": "201282591594", "e": "minamouries841@gmail.com", "b": "١٩٩١-٠٥-٣١", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "نشأت سيد فريد", "t": "", "p": "201284882930", "e": "Nashat10said@gmail.com", "b": "١٩٩٢-٠٣-٢٦", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "يسي خليل داود", "t": "أستاذ", "p": "20127265301", "e": "yasaaakhalil@gmail.com", "b": "٢٠٠٣-٠٧-٠٣", "z": "اسرة أبونا ارسانيوس وديد والقديسة أكسانى", "a": "السيوف شماعة – السيوف شماعة", "f": ""}], "5": [{"n": "امير ايمن عازر", "t": "أستاذ", "p": "201281742735", "e": "azerfarag77@gmail.com", "b": "٢٠٠٦-١٢-٢٠", "z": "", "a": "ش الفنان محمد عثمان اول جميله بوحريد - الدور الخامس برج الحياه – السيوف شماعة", "f": ""}, {"n": "اندرو اسحق فوزي", "t": "أستاذ", "p": "201229162448", "e": "andrew.issac0@gmail.com", "b": "١٩٩٢-٠٢-٠١", "z": "", "a": "برج الرضوي ١٦ ش محمود الكمشوشي السيوف – السيوف شماعة", "f": ""}, {"n": "ايرينى صبحى اسحق", "t": "", "p": "201206860490", "e": "erinysobhy936@gmail.com", "b": "٢٠٠٣-٠٨-١١", "z": "", "a": "ش الفنان محمد عثمان برج الرعايا – السيوف شماعة", "f": ""}, {"n": "جرجس عماد حليم خليل", "t": "أستاذ", "p": "201275855347", "e": "Gergesemad287@gmail.com", "b": "١٩٩٦-٠٣-٠٥", "z": "", "a": "شارع ٧  ارض المفتى الجديده - منزل ٣٦ الدور ٢ – السيوف شماعة", "f": ""}, {"n": "جيسيكا عماد ماهر حليم", "t": "تاسوني", "p": "201279606425", "e": "Jessicaemadmaher@gmail.com", "b": "٢٠٠٦-٠٧-٠١", "z": "", "a": "فتحة الفلكي شارع السالم عمارة السالم الدور الثاني – السيوف شماعة", "f": ""}, {"n": "جيسيكا مينا عبده", "t": "تاسوني", "p": "201210951594", "e": "menajassi97@gmail.com", "b": "٢٠٠٥-٠٦-١٤", "z": "", "a": "صلاح الدين امام عمارة مستشفى مهيب – السيوف شماعة", "f": ""}, {"n": "چوسيان سعد عدلي", "t": "تاسوني", "p": "201222317901", "e": "jojosad899@gmail.com", "b": "٢٠٠٦-٠٣-٠١", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "دميانة جرجس بدرى", "t": "تاسوني", "p": "201287874505", "e": "gergesdemiana2@gmail.com", "b": "٢٠٠٥-٠٦-٠٢", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "ديفيد عماد داود", "t": "أستاذ", "p": "201229223822", "e": "davidemad270@gmail.com", "b": "٢٠٠٥-٠٥-٢٣", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "رانيا نصر رمزي", "t": "تاسوني", "p": "201226124366", "e": "wafarania200@gmail.com", "b": "٢٠٠٠-٠٩-٠١", "z": "", "a": "10 ش الاحلام عمارات الشركة المتحدة للاسكان والتعمير عمارة الاحلام نموذج أ – السيوف شماعة", "f": ""}, {"n": "سولانج كرم نزهي حلمي", "t": "تاسوني", "p": "201220745508", "e": "soula.helmy@gmail.com", "b": "٢٠٠٧-٠١-١٩", "z": "", "a": "أمام الكنيسة البرج اللي قدام مكتبة المحبة – السيوف شماعة", "f": ""}, {"n": "سيفا عزيز صدقي", "t": "تاسوني", "p": "201550561330", "e": "Azizsylvia7@gmail.com", "b": "٢٠٠٢-٠٩-١٧", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "صموئيل امجد راضى", "t": "", "p": "201220025696", "e": "Samuelamgad10@gmail.com", "b": "٢٠٠٧-٠٨-٠١", "z": "", "a": "ش السلام قبل ١٦ الملك عند قهوة سهر الليالى – الفلكى", "f": ""}, {"n": "فادي الفي صالح الجيندي", "t": "أستاذ", "p": "201227112304", "e": "fadyalfy2911@gmail.com", "b": "٢٠٠١-١١-٢٩", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "فبرونيا رأفت فاخر", "t": "تاسوني", "p": "201203130125", "e": "febroniarafaat9@gmail.com", "b": "٢٠٠٦-٠٧-١١", "z": "", "a": "٤ شارع الفنان محمد عثمان بجانب باريس ماركت - الدور ال٣ – السيوف شماعة", "f": ""}, {"n": "مارتينا مجدي نبيه سلامة", "t": "تاسوني", "p": "201280254503", "e": "martynamajdy@gmail.com", "b": "٢٠٠١-٠٦-١٦", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "مارتينا هاني ايوب سليمان", "t": "تاسوني", "p": "201285299563", "e": "totah1392@gmail.com", "b": "٢٠٠٤-٠٥-١٩", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "ماري منير حنا", "t": "", "p": "201200602360", "e": "marymouner60@gmail.com", "b": "١٩٨٣-٠٨-١٩", "z": "", "a": "شارع الفنان احمد عثمان – السيوف شماعة", "f": ""}, {"n": "ماريان ممدوح ممدوح", "t": "", "p": "201284005956", "e": "marian.mamdouh111@gmail.com", "b": "٢٠٠٣-١٠-٢٦", "z": "", "a": "ش رشاد شفيق برج الوفاء – السيوف شماعة", "f": ""}, {"n": "ماريانا سمير لمعى", "t": "تاسوني", "p": "201284225786", "e": "marosamir817@gmail.com", "b": "١٩٩٤-١١-٠٢", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "مرثا رسمى قلادة عوض", "t": "", "p": "201281874710", "e": "Lolohaney2032@Gmail.com", "b": "١٩٧٩-٠٧-٠١", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "مريم إبراهيم عزمي", "t": "تاسوني", "p": "201212551153", "e": "mero.m2018@gmail.com", "b": "٢٠٠٠-٠١-٠٨", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "مريم جورج فريد", "t": "تاسوني", "p": "201203017163", "e": "Merogeorge71@gmail.com", "b": "٢٠٠٧-٠١-٠٧", "z": "", "a": "السيوف شماعة – السيوف شماعة", "f": ""}, {"n": "ميرنا رافت عزيز", "t": "أستاذ", "p": "201273918090", "e": "Mernaraafataziz254@gmail.com", "b": "١٩٩٧-٠٩-١٤", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "ميرنا مجدي نبيه", "t": "تاسوني", "p": "201225439539", "e": "Merna.magdy028@gmail.com", "b": "١٩٩٦-٠٨-٠٩", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "مينا رأفت حكيم", "t": "أستاذ", "p": "201287650757", "e": "minarafat404@gmail.com", "b": "١٩٩٦-٠٣-٠٤", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "مينا سعد غبريال", "t": "أستاذ", "p": "201280395281", "e": "Menasaad009@gmail.com", "b": "٢٠٠٣-٠٧-١٧", "z": "", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "مينا مرقص عزيز", "t": "", "p": "201227616848", "e": "minmorcos@gmail.com", "b": "٢٠٠٥-١٢-٠٩", "z": "", "a": "الفلكي ش ١٦ الملك ش ٢٧ – السيوف شماعة", "f": ""}, {"n": "مينا ميلاد غرزي", "t": "", "p": "201200886962", "e": "mina.melad.g.f@gmail.com", "b": "٢٠٠٧-٠١-٢١", "z": "", "a": "الفلكي شارع ١٦ الملك – السيوف شماعة", "f": ""}, {"n": "ناردين عيسى كمال", "t": "تاسوني", "p": "201207038125", "e": "nardinessa2@gmail.com", "b": "٢٠٠٥-٠٦-٢٩", "z": "", "a": "شارع صلاح الدين بجوار مخزن الانابيب - الدور ٨ – السيوف شماعة", "f": ""}, {"n": "هيلانة عيسى عزمى", "t": "", "p": "201278010564", "e": "hellanaessa@gmail.com", "b": "٢٠٠٤-١٠-٢٧", "z": "", "a": "٤٥ شارع مصطفى نظيف متفرع من صلاح الدين – السيوف شماعة", "f": ""}], "6": [{"n": "اسامة امجد لحظى", "t": "أستاذ", "p": "201289889127", "e": "osamaamgad55@gmail.com", "b": "١٩٩٧-٠٤-٢٣", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "امير ايليا فنهير", "t": "أستاذ", "p": "201275457562", "e": "amirelia466@gmail.com", "b": "٢٠٠٦-١١-٠٨", "z": "القديس ماربقطر والقديسة بربارة", "a": "ش صيدلية برمو متفرع من صلاح الدين – السيوف شماعة", "f": ""}, {"n": "اندرو يوسف عزمي", "t": "أستاذ", "p": "201284226207", "e": "azmyandrow@gmail.com", "b": "٢٠٠٥-٠٣-٠٦", "z": "القديس ماربقطر والقديسة بربارة", "a": "ش الفنان محمد عثمان متفرع من شارع جميلة بو حريد برج الحياة - الدور ال 12 - أول شارع الكنيسة – السيوف شماعة", "f": ""}, {"n": "اندريانا جرجس عيد عادل", "t": "", "p": "201200515912", "e": "andrianaguirguis@gmail.com", "b": "١٩٩٩-٠٩-١٧", "z": "القديس ماربقطر والقديسة بربارة", "a": "ش الامام الشافعي برج الصفوه دور5شقه3 - الامام الشافعي – السيوف شماعة", "f": ""}, {"n": "بولا نبيل فاروق", "t": "أستاذ", "p": "201279121452", "e": "npola5341@gmail.com", "b": "٢٠٠٧-٠٦-٠٥", "z": "القديس ماربقطر والقديسة بربارة", "a": "مدينة مينا شارع الشاويش – العصافره", "f": ""}, {"n": "بيشوي ميلاد محروس", "t": "", "p": "201226782596", "e": "beshoymelad1000@gmail.com", "b": "٢٠٠٤-٠٥-٣٠", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "جون عماد جرجس", "t": "أستاذ", "p": "201204272268", "e": "johnemad958@gmail.com", "b": "٢٠٠٦-٠١-٢٤", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة بجوار كنيسة الانبا اثناسيوس – السيوف شماعة", "f": ""}, {"n": "چومانه صبحي بشري حنا", "t": "تاسوني", "p": "201283226556", "e": "jomanasobhy04@gmail.com", "b": "٢٠٠٧-٠٣-٢١", "z": "القديس ماربقطر والقديسة بربارة", "a": "ارض جابر ش 2 بجانب قهوة الاسيوطي – السيوف شماعة", "f": ""}, {"n": "دميانة رزق الله عبد", "t": "تاسوني", "p": "201275159476", "e": "demeana.rz@gmail.com", "b": "١٩٩٥-١٢-٢٥", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – مصطفى كامل", "f": ""}, {"n": "سيمون سامي بخيت", "t": "تاسوني", "p": "201203274830", "e": "Simonsamy@gmail.com", "b": "١٩٩٨-١٢-٠٦", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة – السيوف شماعة", "f": ""}, {"n": "عادل جرجس حنين", "t": "أستاذ", "p": "201211149195", "e": "adelgerges2006@Gmail.com", "b": "٢٠٠٦-٠٥-٠٩", "z": "القديس ماربقطر والقديسة بربارة", "a": "شارع النخيل.امام مدرسة بن خلدون. منزل 2 – السيوف شماعة", "f": ""}, {"n": "فارس روماني حنين", "t": "أستاذ", "p": "201274042034", "e": "faresromany9@gmail.com", "b": "٢٠٠٦-٠٥-٣٠", "z": "القديس ماربقطر والقديسة بربارة", "a": "عمارة فينسيا ناصية بعد عمارات ابو امين – السيوف شماعة", "f": ""}, {"n": "فبرونيا مجدى اسحق", "t": "تاسوني", "p": "201270010797", "e": "Magdyfeboo.99@gmail.com", "b": "١٩٩٩-٠٨-٢٧", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "فيرونيا عزمي حنا", "t": "تاسوني", "p": "201127251644", "e": "veroazmy0@gmail.com", "b": "٢٠٠٠-٠٣-٢٩", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "كارين مرقص ابراهيم", "t": "تاسوني", "p": "201229473304", "e": "Karen.koky112@gmail.com", "b": "٢٠٠٦-١٢-٠٢", "z": "القديس ماربقطر والقديسة بربارة", "a": "بجوار كنيسة الانبا اثناسيوس - بجوار كنيسة الانبا اثناسيوس – السيوف شماعة", "f": ""}, {"n": "كيرلس اشرف عبد المسيح", "t": "أستاذ", "p": "201284311216", "e": "Kiroasrhaf493@gmail.com", "b": "٢٠٠٤-٠٩-٠١", "z": "القديس ماربقطر والقديسة بربارة", "a": "شارع بنزينة صبري – السيوف شماعة", "f": ""}, {"n": "كيرلس بيشوى مجدى", "t": "أستاذ", "p": "201274298998", "e": "Kyrillosbeshoy777@gmail.com", "b": "٢٠٠٧-٠٤-٢٨", "z": "القديس ماربقطر والقديسة بربارة", "a": "ش ١٢ من ش الشركة العربية (الاسكان الصناعى ) عمارة ٨٠ – السيوف شماعة", "f": ""}, {"n": "مادونا البير صموئيل جيد", "t": "تاسوني", "p": "201212559125", "e": "madonnaalber05@gmail.com", "b": "٢٠٠٦-١١-٠٣", "z": "القديس ماربقطر والقديسة بربارة", "a": "دوران السيوف بجانب معمل الشمس – السيوف شماعة", "f": ""}, {"n": "مارتينا حوزيف رأفت", "t": "تاسوني", "p": "201207767712", "e": "martinajossef413@gmail.com", "b": "٢٠٠٣-١٢-١٥", "z": "القديس ماربقطر والقديسة بربارة", "a": "شاىع الفنان محمد عثمان – السيوف شماعة", "f": ""}, {"n": "مارتينا رؤوف رضا", "t": "", "p": "201278065517", "e": "martinaraouf833@gmail.com", "b": "٢٠٠٣-٠٨-١٧", "z": "القديس ماربقطر والقديسة بربارة", "a": "تم نقل من السيوف – الراس السوداء", "f": ""}, {"n": "مارك عاطف فكري", "t": "", "p": "201271839741", "e": "marka1581@gmail.com", "b": "١٩٩٨-٠١-٠٧", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "ماريان غالى داود", "t": "تاسوني", "p": "201224672328", "e": "marianghaly155@gmail.com", "b": "١٩٩٩-٠٣-٢٦", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "مرقس يوسف عبد النور", "t": "أستاذ", "p": "201202664220", "e": "Ymarco911@gmail.com", "b": "١٩٩٦-١١-٠٦", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "مريم رزق الله عبد", "t": "تاسوني", "p": "201275159476", "e": "love.jesus1368@GMAIL.COM", "b": "١٩٩٥-١٢-٢٥", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – مصطفى كامل", "f": ""}, {"n": "مريم عادل عدلي", "t": "تاسوني", "p": "201205275418", "e": "Mariamadel18111996@gmail.com", "b": "١٩٩٦-١١-١٨", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "ميرنا عماد زرزور عبدالله", "t": "تاسوني", "p": "201224629827", "e": "mernaemadzarzour@gmail.com", "b": "٢٠٠١-٠٩-٢٩", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "ميرنا عماد عوض", "t": "تاسوني", "p": "201220377789", "e": "emadmerna834@gmail.com", "b": "٢٠٠٠-١٢-٢٩", "z": "القديس ماربقطر والقديسة بربارة", "a": "السيوف شماعة الاسكندرية – السيوف شماعة", "f": ""}, {"n": "مينا دميان أنور", "t": "أستاذ", "p": "201285274075", "e": "Minademian370@gmail.Com", "b": "٢٠٠٦-٠٣-٢٧", "z": "القديس ماربقطر والقديسة بربارة", "a": "ش.بنزينة صبري عند قهوة الاسيوطي – السيوف شماعة", "f": ""}]};
+var CL={4:"رابعة",5:"خامسة",6:"سادسة"},IC={4:"📖",5:"🏅",6:"🎓"};
+var IT=[["تحضير","📖"],["افتقاد","💞"],["قداس","⛪"],["تفاعل جروبات","💬"],["اجتماع خدمة","📅"],["حضور خدمة","👥"]];
+var NW=61,START=new Date(2026,9,31);
+var ad=function(n){return String(n).replace(/\d/g,function(d){return "٠١٢٣٤٥٦٧٨٩"[d]})};
+var fd=function(d){return ad(d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear())};
+var wd=function(i){return new Date(2026,9,31+7*i)};
+var esc=function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+var st={};try{st=JSON.parse(localStorage.getItem("srv1"))||{}}catch(e){}
+st.w=st.w||{};st.m=st.m||{};st.added=st.added||{4:[],5:[],6:[]};
+var DB=null,RO=false,pend={},tm={};
+var setS=function(k){var e=$("sy");if(e)e.textContent={sync:"🟢 متزامن",local:"💾 على هذا الجهاز فقط",ro:"👁 عرض فقط"}[k]||""};
+var save=function(id){try{localStorage.setItem("srv1",JSON.stringify(st))}catch(e){}if(id)persist(id)};
+function persist(id){
+  if(!DB||RO)return;
+  clearTimeout(tm[id]);pend[id]=1;
+  tm[id]=setTimeout(function(){
+    var m=meta(id),b={w:{},f:m.f||"",n:m.n||""};
+    for(var w=0;w<NW;w++){var a=st.w[id+"|"+w];if(a&&a.some(function(v){return v}))b.w[w]=a}
+    DB.doc("tr/"+id).set(b).then(function(){delete pend[id]}).catch(function(e){delete pend[id];if(e&&e.code=="invalid_argument"){RO=true;setS("ro")}});
+  },350);
+}
+var now=Math.floor((Date.now()-START.getTime())/6048e5);
+var V={tab:4,wk:Math.max(0,Math.min(NW-1,now)),view:"auto",sort:"name",q:"",flt:"all",add:false,open:{}};
+var cur=V.wk;
+function list(c){return D[c].map(function(x,i){x.id=c+":"+i;return x}).concat(st.added[c].map(function(x,i){x.id=x.id||c+":a"+i;return x}))}
+function arr(id,w){return st.w[id+"|"+w]||[0,0,0,0,0,0]}
+function sc(id,w){return arr(id,w).reduce(function(a,b){return a+b},0)}
+function tot(id){var t=0;for(var w=0;w<NW;w++)t+=sc(id,w);return t}
+function good(id){var t=0;for(var w=0;w<NW;w++)if(sc(id,w)>=4)t++;return t}
+function setA(id,w,a){st.w[id+"|"+w]=a;save(id)}
+function meta(id){return st.m[id]||(st.m[id]={f:"",n:""})}
+function cleanPh(p){return p}
+
+function head(){
+  var s=$("ws");var h="";
+  for(var i=0;i<NW;i++)h+='<option value="'+i+'"'+(i==V.wk?" selected":"")+'>أسبوع '+ad(i+1)+" · "+fd(wd(i))+(i==cur?" (الحالي)":"")+"</option>";
+  s.innerHTML=h;
+}
+function $(i){return document.getElementById(i)}
+function navr(){
+  var h="";[4,5,6].forEach(function(c){h+='<button data-tab="'+c+'" class="'+(V.tab==c?"on":"")+'"><span>'+IC[c]+"</span>"+CL[c]+"</button>"});
+  h+='<button data-tab="stats" class="'+(V.tab=="stats"?"on":"")+'"><span>📊</span>إحصائيات</button>';
+  $("nav").innerHTML=h;
+}
+function card(x){
+  var a=arr(x.id,V.wk),s=sc(x.id,V.wk),m=meta(x.id),ini=x.n.charAt(0);
+  var h='<div class="card"><div class="top"><div class="av">'+esc(ini)+'</div><div class="nm"><b>'+esc(x.n)+'</b><button class="lk" data-det="'+x.id+'">عرض البيانات ‹</button></div><span class="ix">#'+ad(x.k)+"</span></div>";
+  h+='<div class="act"><span class="star'+(s>=4?" ok":"")+'">⭐ 6 / '+ad(s)+"</span>";
+  h+='<button class="pill all" data-all="'+x.id+'">الكل ✓</button>';
+  if(x.p){h+='<a class="pill w" href="https://wa.me/'+x.p+'" target="_blank" rel="noopener">💬</a><a class="pill" href="tel:+'+x.p+'">📞</a>'}
+  h+="</div><div class=\"bars\">"+a.map(function(v){return '<i class="'+(v?"f":"")+'"></i>'}).join("")+"</div>";
+  h+='<div class="tg">'+IT.map(function(t,i){return '<button class="t'+(a[i]?" on":"")+'" data-t="'+x.id+"|"+i+'"><span>'+t[1]+"</span>"+t[0]+"</button>"}).join("")+"</div>";
+  h+='<div class="ft"><span>المجموع: '+ad(tot(x.id))+'</span><span class="g">أسابيع ≥ 4: '+ad(good(x.id))+"</span>"+(m.f||x.f?"<span>أب الاعتراف: "+esc(m.f||x.f)+"</span>":"")+"</div>";
+  if(V.open[x.id]){
+    h+='<div class="det">'+(x.t?"<div>اللقب: <b>"+esc(x.t)+"</b></div>":"")+(x.z?"<div>الأسرة: <b>"+esc(x.z)+"</b></div>":"")
+    +(x.b?"<div>تاريخ الميلاد: <b>"+esc(x.b)+"</b></div>":"")+(x.p?"<div>الموبايل: <b dir=\"ltr\">+"+x.p+"</b></div>":"")
+    +(x.e?"<div>الإيميل: <b dir=\"ltr\">"+esc(x.e)+"</b></div>":"")+(x.a?"<div>العنوان: <b>"+esc(x.a)+"</b></div>":"")
+    +'<label>أب الاعتراف<input type="text" data-f="'+x.id+'" value="'+esc(m.f||x.f)+'"></label>'
+    +'<label>ملاحظات<input type="text" data-n="'+x.id+'" value="'+esc(m.n)+'"></label></div>';
+  }
+  return h+"</div>";
+}
+function view(){
+  var c=V.tab,L=list(c);L.forEach(function(x,i){x.k=i+1});
+  var cnt={all:L.length,top:0,visit:0,zero:0};
+  L.forEach(function(x){var s=sc(x.id,V.wk);if(s>=4)cnt.top++;if(!arr(x.id,V.wk)[1])cnt.visit++;if(s==0)cnt.zero++});
+  var R=L.filter(function(x){
+    if(V.q&&x.n.indexOf(V.q)<0)return false;
+    var s=sc(x.id,V.wk);
+    return V.flt=="all"||(V.flt=="top"&&s>=4)||(V.flt=="visit"&&!arr(x.id,V.wk)[1])||(V.flt=="zero"&&s==0)});
+  if(V.sort=="hi")R.sort(function(a,b){return sc(b.id,V.wk)-sc(a.id,V.wk)});
+  else if(V.sort=="lo")R.sort(function(a,b){return sc(a.id,V.wk)-sc(b.id,V.wk)});
+  else R.sort(function(a,b){return a.n.localeCompare(b.n,"ar")});
+  var h='<div class="row"><input type="text" id="q" placeholder="ابحثي باسم الخادم..." value="'+esc(V.q)+'"></div>';
+  h+='<div class="row"><select id="so"><option value="name"'+(V.sort=="name"?" selected":"")+'>ترتيب: الاسم</option><option value="hi"'+(V.sort=="hi"?" selected":"")+'>ترتيب: الأعلى</option><option value="lo"'+(V.sort=="lo"?" selected":"")+'>ترتيب: الأقل</option></select>';
+  h+='<div class="seg">'+[["auto","تلقائي"],["grid","▦"],["table","▤"]].map(function(v){return '<button data-v="'+v[0]+'" class="'+(V.view==v[0]?"on":"")+'">'+v[1]+"</button>"}).join("")+"</div></div>";
+  h+='<button class="add" id="ab">إضافة خادم جديد +</button>';
+  if(V.add)h+='<div class="row"><input type="text" id="an" placeholder="اسم الخادم"><button class="ib" id="ak" style="width:auto;padding:0 14px">حفظ</button></div>';
+  h+='<div class="chips"><button class="chip'+(V.flt=="all"?" on":"")+'" data-fl="all">الكل ('+ad(cnt.all)+')</button><button class="chip g'+(V.flt=="top"?" on":"")+'" data-fl="top">متميزون ≥ 4 ('+ad(cnt.top)+')</button><button class="chip r'+(V.flt=="visit"?" on":"")+'" data-fl="visit">بحاجة لافتقاد ('+ad(cnt.visit)+')</button><button class="chip'+(V.flt=="zero"?" on":"")+'" data-fl="zero">لم يبدأ ('+ad(cnt.zero)+")</button></div>";
+  if(!R.length)return h+'<div class="empty">لا يوجد نتائج</div>';
+  if(V.view=="table"){
+    h+='<div class="tbl"><table><tr><th>الاسم</th>'+IT.map(function(t){return "<th>"+t[1]+"</th>"}).join("")+"<th>⭐</th></tr>";
+    R.forEach(function(x){var a=arr(x.id,V.wk);h+="<tr><td>"+esc(x.n)+"</td>"+a.map(function(v,i){return '<td class="c'+(v?" on":"")+'" data-t="'+x.id+"|"+i+'">'+(v?"✓":"·")+"</td>"}).join("")+"<td>"+ad(sc(x.id,V.wk))+"</td></tr>"});
+    return h+"</table></div>";
+  }
+  h+='<div class="cards'+(V.view=="grid"?" grid":"")+'">'+R.map(card).join("")+"</div>";
+  return h;
+}
+function stats(){
+  var h="";
+  [4,5,6].forEach(function(c){
+    var L=list(c),n=L.length,tw=0,per=[0,0,0,0,0,0];
+    L.forEach(function(x){var a=arr(x.id,V.wk);a.forEach(function(v,i){per[i]+=v});tw+=sc(x.id,V.wk)});
+    h+='<div class="sc"><h3>'+IC[c]+" "+CL[c]+" · "+ad(n)+" خادم · متوسط الأسبوع "+ad(n?(tw/n).toFixed(1):0)+" / ٦</h3>";
+    IT.forEach(function(t,i){h+='<div class="mr"><em>'+t[1]+" "+t[0]+"</em><div><i style=\"width:"+(n?per[i]/n*100:0)+'%"></i></div><span>'+ad(per[i])+"</span></div>"});
+    var ws=[],mx=1;for(var w=0;w<NW;w++){var t=0;L.forEach(function(x){t+=sc(x.id,w)});ws.push(t);if(t>mx)mx=t}
+    h+='<div class="ch">'+ws.map(function(t,w){return '<i class="'+(w==V.wk?"cur":"")+'" style="height:'+Math.max(3,t/mx*100)+'%"></i>'}).join("")+"</div>";
+    var T=L.slice().sort(function(a,b){return tot(b.id)-tot(a.id)}).slice(0,3).filter(function(x){return tot(x.id)>0});
+    if(T.length)h+='<div class="ft" style="margin-top:12px">'+T.map(function(x,i){return '<span class="g">'+["🥇","🥈","🥉"][i]+" "+esc(x.n)+" · "+ad(tot(x.id))+"</span>"}).join("")+"</div>";
+    h+="</div>";
+  });
+  return h;
+}
+function render(){navr();var y=window.scrollY;$("app").innerHTML=V.tab=="stats"?stats():view();window.scrollTo(0,y)}
+function boot(){head();render()}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-tab],[data-t],[data-all],[data-det],[data-v],[data-fl],#ab,#ak");if(!b)return;
+  var d=b.dataset;if(RO&&(d.t||d.all||b.id=="ak"))return;
+  if(d.tab){V.tab=d.tab=="stats"?"stats":+d.tab;V.flt="all";V.q="";V.add=false;window.scrollTo(0,0)}
+  else if(d.t){var p=d.t.split("|"),a=arr(p[0],V.wk).slice();a[+p[1]]=a[+p[1]]?0:1;setA(p[0],V.wk,a)}
+  else if(d.all){var a2=arr(d.all,V.wk),full=a2.every(function(v){return v});setA(d.all,V.wk,full?[0,0,0,0,0,0]:[1,1,1,1,1,1])}
+  else if(d.det){V.open[d.det]=!V.open[d.det]}
+  else if(d.v){V.view=d.v}
+  else if(d.fl){V.flt=d.fl}
+  else if(b.id=="ab"){V.add=!V.add}
+  else if(b.id=="ak"){var v=$("an").value.trim();if(v){var nid=V.tab+":x"+Date.now().toString(36);st.added[V.tab].push({id:nid,n:v,t:"",p:"",e:"",b:"",z:"",a:"",f:""});save();if(DB)DB.doc("ad/"+nid).set({cls:V.tab,n:v}).catch(function(){});V.add=false}}
+  render();
+});
+document.addEventListener("input",function(e){if(e.target.id=="q"){V.q=e.target.value.trim();var p=e.target.selectionStart;render();var q=$("q");q.focus();q.setSelectionRange(p,p)}});
+document.addEventListener("change",function(e){
+  var t=e.target;
+  if(t.id=="ws"){V.wk=+t.value;render()}
+  else if(t.id=="so"){V.sort=t.value;render()}
+  else if(t.dataset.f){meta(t.dataset.f).f=t.value;save(t.dataset.f)}
+  else if(t.dataset.n){meta(t.dataset.n).n=t.value;save(t.dataset.n)}
+});
+$("pv").onclick=function(){if(V.wk>0){V.wk--;$("ws").value=V.wk;render()}};
+$("nx").onclick=function(){if(V.wk<NW-1){V.wk++;$("ws").value=V.wk;render()}};
+boot();setS("local");
+var SB_URL="https://xgbzmgjvvhbjzyiignwl.supabase.co",SB_KEY="sb_publishable_5BBkZn-lUi5x8epEx7KzZw_neeIZsib";
+(function(){
+  if(!window.supabase)return;
+  var sb=window.supabase.createClient(SB_URL,SB_KEY);
+  var T={tr:"tracker",ad:"added"};
+  DB={
+    doc:function(path){var p=path.split("/"),t=T[p[0]],id=p.slice(1).join("/");
+      return {set:function(b){
+        var row=t=="tracker"?{id:id,w:b.w,f:b.f,n:b.n,updated_at:new Date().toISOString()}:{id:id,cls:b.cls,n:b.n};
+        return sb.from(t).upsert(row).then(function(r){if(r.error)throw {code:"unavailable",message:r.error.message}})}}},
+    collection:function(c){var t=T[c];return {onSnapshot:function(cb){
+      var load=function(){sb.from(t).select("*").then(function(r){if(r.data)cb({docs:r.data.map(function(x){return {id:x.id,data:function(){return x}}})})})};
+      load();
+      sb.channel("rt-"+t).on("postgres_changes",{event:"*",schema:"public",table:t},load).subscribe();
+      setInterval(load,20000);}}}
+  };
+  setS("sync");
+  var busy=function(){var a=document.activeElement;return a&&a.tagName=="INPUT"};
+  DB.collection("tr").onSnapshot(function(sn){
+    sn.docs.forEach(function(d){
+      var id=d.id;if(pend[id])return;var x=d.data()||{};
+      Object.keys(st.w).forEach(function(k){if(k.indexOf(id+"|")==0)delete st.w[k]});
+      Object.keys(x.w||{}).forEach(function(w){st.w[id+"|"+w]=x.w[w]});
+      st.m[id]={f:x.f||"",n:x.n||""};
+    });
+    save();if(!busy())render();
+  });
+  DB.collection("ad").onSnapshot(function(sn){
+    var a={4:[],5:[],6:[]};
+    sn.docs.forEach(function(d){var x=d.data()||{};if(a[x.cls])a[x.cls].push({id:d.id,n:x.n||"",t:"",p:"",e:"",b:"",z:"",a:"",f:""})});
+    st.added=a;save();if(!busy())render();
+  });
+})();
+</script>
+</body>
+</html>
